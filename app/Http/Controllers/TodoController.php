@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -16,6 +15,7 @@ class TodoController extends Controller
     public function index()
     {
         $todos = Auth::user()->todos()->get();
+
         return Inertia::render('Todo/Index', [
             'todos' => $todos,
         ]);
@@ -46,6 +46,7 @@ class TodoController extends Controller
     public function show(string $id)
     {
         $todo = Todo::where('id', $id)->first();
+
         return Inertia::render('Todo/Show', [
             'todo' => $todo,
         ]);
