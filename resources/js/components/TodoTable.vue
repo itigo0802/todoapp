@@ -33,7 +33,12 @@ function openCreateModal() {
             <tr v-if="todos.length === 0">
                 <td colspan="3">Todoがありません</td>
             </tr>
-            <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @edit="openEditModal" />
+            <TodoItem
+                v-for="todo in todos"
+                :key="todo.id"
+                :todo="todo"
+                @edit="openEditModal"
+            />
         </tbody>
     </table>
     <TodoFormModal ref="todoModal" :todo="editingTodo" />

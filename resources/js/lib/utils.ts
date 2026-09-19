@@ -7,6 +7,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(date: string | null) {
-    if(!date) return '';
+    if (!date) return '';
     return new Date(date).toLocaleDateString('ja-JP');
 }

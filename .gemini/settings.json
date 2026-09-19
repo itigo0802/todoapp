@@ -1,9 +1,7 @@
 {
     "mcpServers": {
         "lerd": {
-            "args": [
-                "mcp"
-            ],
+            "args": ["mcp"],
             "command": "lerd"
         }
     }
