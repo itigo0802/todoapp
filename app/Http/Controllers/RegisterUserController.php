@@ -19,7 +19,6 @@ class RegisterUserController extends Controller
 
     public function store(RegisterUserRequest $request): RedirectResponse
     {
-
         $user = app(CreatesNewUsers::class)->create($request->all());
         event(new Registered($user));
 
