@@ -2,6 +2,9 @@
 import { Form, Head, Link } from '@inertiajs/vue3';
 import { store } from '@/routes/login';
 import { register } from '@/routes';
+import { usePage } from '@inertiajs/vue3';
+
+const flash = usePage().props.flash;
 </script>
 
 <template>
@@ -10,6 +13,7 @@ import { register } from '@/routes';
         <div class="card bg-base-100 w-full max-w-sm shadow-xl">
             <div class="card-body">
                 <h2 class="card-title">ログイン</h2>
+                <div class="alert alert-success" v-if="flash.success">{{ flash.success }}</div>
                 <Form
                     v-bind="store.form()"
                     #default="{ errors, processing }"

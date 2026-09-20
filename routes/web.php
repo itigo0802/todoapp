@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\UpdateUserInfoController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/UpdateUserInfo', [UpdateUserInfoController::class, 'edit'])->name('updateUserInfo.edit');
     Route::patch('/UpdateUserInfo', [UpdateUserInfoController::class, 'update'])->middleware('precognitive')->name('updateUserInfo.update');
+
+    Route::get('/UpdatePassword', [UpdatePasswordController::class, 'edit'])->name('updatePassword.edit');
 });
