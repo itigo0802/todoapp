@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { home, login, logout, register } from '@/routes';
+import { edit } from '@/routes/updateUserInfo';
 import { Link, usePage } from '@inertiajs/vue3';
 const page = usePage();
 </script>
@@ -37,7 +38,8 @@ const page = usePage();
                 <ul
                     class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
                 >
-                    <li>アカウント修正</li>
+                    <li><Link :href="edit()">アカウント情報修正</Link></li>
+                    <li>パスワード変更</li>
                     <li><Link :href="logout()">ログアウト</Link></li>
                 </ul>
             </details>
