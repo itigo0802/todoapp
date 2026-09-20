@@ -4,11 +4,10 @@ import type { Todo } from '@/types';
 import { usePage } from '@inertiajs/vue3';
 
 defineProps<{ todos: Todo[] }>();
-const page = usePage();
 </script>
 <template>
     <div>
-        <div class="alert alert-success" v-if="page.props.flash.success">{{ page.props.flash.success }}</div>
+        <div class="alert alert-success" v-if="usePage().props.flash.success">{{ usePage().props.flash.success }}</div>
         <TodoTable :todos="todos" />
     </div>
 </template>
