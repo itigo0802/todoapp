@@ -37,7 +37,7 @@ defineExpose({
                         class="validator"
                     />
                 </label>
-                <div class="validator-hint">{{ errors.title }}</div>
+                <div class="text-error mt-1 text-xs" v-if="errors.title">{{ errors.title }}</div>
                 <label class="input">
                     <span class="label">完了日</span>
                     <input
@@ -47,7 +47,7 @@ defineExpose({
                         class="validator"
                     />
                 </label>
-                <div class="validator-hint">{{ errors.completed_date }}</div>
+                <div class="text-error mt-1 text-xs" v-if="errors.completed_date">{{ errors.completed_date }}</div>
                 <label class="floating-label">
                     <span class="label">説明</span>
                     <textarea
@@ -57,7 +57,7 @@ defineExpose({
                         class="textarea validator"
                     ></textarea>
                 </label>
-                <div class="validator-hint">{{ errors.description }}</div>
+                <div class="text-error mt-1 text-xs" v-if="errors.description">{{ errors.description }}</div>
 
                 <div class="modal-action">
                     <button
