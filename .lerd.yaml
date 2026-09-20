@@ -1,12 +1,12 @@
 domains:
-    - todoapp
-php_version: '8.5'
-node_version: '22'
+  - todoapp
+php_version: "8.5"
+node_version: "22"
 framework: laravel
-framework_version: '13'
+framework_version: "13"
 secured: true
 services:
-    - mailpit
-    - redis
+  - mailpit
+  - redis
 workers:
-    - vite
+  - vite
