@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class TodoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
         $todos = Auth::user()->todos()->get();
 
@@ -23,17 +25,9 @@ class TodoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
-    public function store(TodoRequest $request)
+    public function store(TodoRequest $request): RedirectResponse
     {
         Auth::user()->todos()->create($request->validated());
 
@@ -43,7 +37,7 @@ class TodoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TodoRequest $request, Todo $todo)
+    public function update(TodoRequest $request, Todo $todo): RedirectResponse
     {
         $todo->update($request->validated());
 
@@ -53,7 +47,7 @@ class TodoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Todo $todo)
+    public function destroy(Todo $todo): RedirectResponse
     {
         abort_unless($todo->user_id === Auth::id(), 403);
 

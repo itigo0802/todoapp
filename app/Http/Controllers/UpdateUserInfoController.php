@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserInfoRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class UpdateUserInfoController extends Controller
 {
-    public function edit()
+    public function edit(): Response
     {
-        return Inertia::render('Auth/UpdateUserInfo');
+        return Inertia::render('auth/UpdateUserInfo');
     }
 
-    public function update(UpdateUserInfoRequest $request)
+    public function update(UpdateUserInfoRequest $request): RedirectResponse
     {
         $user = Auth::user();
         $user->update($request->validated());
