@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Todo;
+use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -12,9 +14,12 @@ class TodoRequest extends FormRequest
      */
     public function authorize(): bool
     {
+        /** @var Todo|null $todo */
         $todo = $this->route('todo');
+        /** @var User $user */
+        $user = $this->user();
 
-        return $todo === null || $todo->user_id === $this->user()->id;
+        return $todo === null || $todo->user_id === $user->id;
     }
 
     /**
