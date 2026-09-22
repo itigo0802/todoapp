@@ -39,7 +39,9 @@ const page = usePage();
                 <ul
                     class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
                 >
-                    <li><Link :href="editUserInfo()">アカウント情報修正</Link></li>
+                    <li>
+                        <Link :href="editUserInfo()">アカウント情報修正</Link>
+                    </li>
                     <li><Link :href="editPassword()">パスワード変更</Link></li>
                     <li><Link :href="logout()">ログアウト</Link></li>
                 </ul>

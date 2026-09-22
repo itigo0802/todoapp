@@ -6,11 +6,15 @@ const user = usePage().props.auth.user;
 </script>
 <template>
     <Head title="アカウント情報修正"></Head>
-    <div class="bg-base-200 min-h-screen flex items-center justify-center">
+    <div class="bg-base-200 flex min-h-screen items-center justify-center">
         <div class="card bg-base-100 w-full max-w-sm shadow-xl">
             <div class="card-body">
                 <h2 class="card-title">アカウント情報修正</h2>
-                <Form :action="update()" #default="{ errors, invalid, validate, processing }" class="flex flex-col gap-4">
+                <Form
+                    :action="update()"
+                    #default="{ errors, invalid, validate, processing }"
+                    class="flex flex-col gap-4"
+                >
                     <label class="input">
                         <span class="label">E-mailアドレス</span>
                         <input
@@ -37,10 +41,7 @@ const user = usePage().props.auth.user;
                             class="validator"
                         />
                     </label>
-                    <div
-                        class="text-error mt-1 text-xs"
-                        v-if="invalid('name')"
-                    >
+                    <div class="text-error mt-1 text-xs" v-if="invalid('name')">
                         {{ errors.name }}
                     </div>
                     <input
@@ -49,7 +50,9 @@ const user = usePage().props.auth.user;
                         value="修正"
                         class="btn btn-primary"
                     />
-                    <Link :href="home()" class="btn btn-secondary">キャンセル</Link>
+                    <Link :href="home()" class="btn btn-secondary"
+                        >キャンセル</Link
+                    >
                 </Form>
             </div>
         </div>

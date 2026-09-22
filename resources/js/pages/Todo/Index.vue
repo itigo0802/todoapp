@@ -8,7 +8,9 @@ defineProps<{ todos: Todo[] }>();
 </script>
 <template>
     <div>
-        <div class="alert alert-success" v-if="flash.success">{{ flash.success }}</div>
+        <div class="alert alert-success" v-if="flash.success">
+            {{ flash.success }}
+        </div>
         <TodoTable :todos="todos" />
     </div>
 </template>

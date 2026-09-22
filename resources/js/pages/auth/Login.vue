@@ -13,7 +13,9 @@ const flash = usePage().props.flash;
         <div class="card bg-base-100 w-full max-w-sm shadow-xl">
             <div class="card-body">
                 <h2 class="card-title">ログイン</h2>
-                <div class="alert alert-success" v-if="flash.success">{{ flash.success }}</div>
+                <div class="alert alert-success" v-if="flash.success">
+                    {{ flash.success }}
+                </div>
                 <Form
                     v-bind="store.form()"
                     #default="{ errors, processing }"
