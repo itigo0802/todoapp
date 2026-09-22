@@ -18,6 +18,7 @@ function handleDelete() {
         <td :class="{ 'line-through decoration-double': todo.completed_date }">
             {{ todo.title }}
         </td>
+        <td>{{ formatDate(todo.expiration_date) }}</td>
         <td>{{ formatDate(todo.completed_date) }}</td>
         <td class="flex gap-4">
             <button class="btn btn-primary" @click="$emit('edit', todo)">

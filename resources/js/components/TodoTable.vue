@@ -25,6 +25,7 @@ function openCreateModal() {
         <thead>
             <tr>
                 <th>タイトル</th>
+                <th>期限</th>
                 <th>完了日</th>
                 <th></th>
             </tr>

@@ -26,6 +26,7 @@ class TodoRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:255'],
+            'expiration_date' => ['required', 'date'],
             'description' => ['nullable', 'string'],
             'completed_date' => ['nullable', 'date'],
         ];
