@@ -6,6 +6,7 @@ use App\Actions\Fortify\PasswordValidationRules;
 use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class RegisterUserRequest extends FormRequest
@@ -38,5 +39,14 @@ class RegisterUserRequest extends FormRequest
             ],
             'password' => $this->passwordRules(),
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        if (is_string($this->input('email'))) {
+            $this->merge([
+                'email' => Str::lower($this->input('email')),
+            ]);
+        }
     }
 }

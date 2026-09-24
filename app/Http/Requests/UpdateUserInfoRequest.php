@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class UpdateUserInfoRequest extends FormRequest
@@ -37,5 +38,14 @@ class UpdateUserInfoRequest extends FormRequest
                 Rule::unique('users')->ignore($user->id),
             ],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        if (is_string($this->input('email'))) {
+            $this->merge([
+                'email' => Str::lower($this->input('email')),
+            ]);
+        }
     }
 }

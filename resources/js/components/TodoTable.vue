@@ -32,7 +32,7 @@ function openCreateModal() {
         </thead>
         <tbody>
             <tr v-if="todos.length === 0">
-                <td colspan="3">Todoがありません</td>
+                <td colspan="4">Todoがありません</td>
             </tr>
             <TodoItem
                 v-for="todo in todos"
