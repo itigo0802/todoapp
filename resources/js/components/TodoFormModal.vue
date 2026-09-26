@@ -49,7 +49,10 @@ defineExpose({
                         class="validator"
                     />
                 </label>
-                <div class="text-error mt-1 text-xs" v-if="errors.expiration_date">
+                <div
+                    class="text-error mt-1 text-xs"
+                    v-if="errors.expiration_date"
+                >
                     {{ errors.expiration_date }}
                 </div>
                 <label class="input">
