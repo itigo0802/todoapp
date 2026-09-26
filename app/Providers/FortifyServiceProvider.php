@@ -31,6 +31,7 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Fortify::loginView(fn () => Inertia::render('auth/Login'));
+        Fortify::confirmPasswordView(fn () => Inertia::render('auth/ConfirmPassword'));
         // 自前のコントローラーに変更
         // Fortify::registerView(fn () => Inertia::render('auth/Register'));
 

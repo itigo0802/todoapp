@@ -3,8 +3,17 @@ import { Form, Head, Link } from '@inertiajs/vue3';
 import { store } from '@/routes/login';
 import { register } from '@/routes';
 import { usePage } from '@inertiajs/vue3';
+import { usePasskeyVerify } from '@laravel/passkeys/vue';
+import { router } from '@inertiajs/vue3';
 
 const flash = usePage().props.flash;
+const { verify, isLoading, error, isSupported } = usePasskeyVerify({
+    onSuccess: (response) => {
+        if (response.redirect) {
+            router.visit(response.redirect);
+        }
+    },
+});
 </script>
 
 <template>
@@ -50,6 +59,16 @@ const flash = usePage().props.flash;
                         value="ログイン"
                         class="btn btn-primary"
                     />
+                    <button
+                        @click="verify"
+                        class="btn btn-outline btn-primary"
+                        :disabled="!isSupported || isLoading"
+                    >
+                        {{ isLoading ? 'ログイン中...' : 'パスキーでログイン' }}
+                    </button>
+                    <div v-if="error" class="text-error mt-1 text-sm">
+                        {{ error }}
+                    </div>
                 </Form>
                 <Link :href="register()" class="link">会員登録へ</Link>
             </div>
